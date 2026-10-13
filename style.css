@@ -1,0 +1,256 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #ed8eaf;
+  --dark-pink: #b94770;
+  --cream: #fff8f5;
+  --text: #704653;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top left, #ffe0eb, transparent 55%),
+    radial-gradient(ellipse at bottom right, #eadfff, transparent 50%),
+    #fff8f5;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(100% - 32px, 680px);
+  margin: 0 auto;
+  padding: 55px 0 30px;
+  text-align: center;
+  position: relative;   
+  z-index: 1;
+}
+
+.eyebrow, .letter-label {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--dark-pink);
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: normal;
+  margin: 18px 0 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #9a7180;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s, background 0.25s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.envelope {
+  position: relative;
+  display: block;
+  width: 190px;
+  height: 130px;
+  margin: 40px auto;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f5a9c3, #d96d98);
+  box-shadow: 0 18px 40px #c45f8735;
+  animation: float 3s ease-in-out infinite;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f8bfd2;
+  clip-path: polygon(0 0, 50% 57%, 100% 0);
+  border-radius: 12px;
+}
+
+.envelope-heart {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  font-size: 35px;
+  color: white;
+  text-shadow: 0 2px 12px #a83c67;
+}
+
+.envelope-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  color: white;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.letter {
+  padding: clamp(22px, 6vw, 45px);
+  margin: 30px auto;
+  background: #ffffffc9;
+  border: 1px solid #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 15px 60px #a95a7718;
+  backdrop-filter: blur(12px);
+  animation: appear 0.8s ease both;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter h2 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 18px 0;
+}
+
+.letter-text {
+  font-size: 17px;
+  line-height: 2;
+  text-align: left;
+  white-space: pre-wrap;
+  min-height: 100px;
+}
+
+.signature {
+  text-align: right;
+  line-height: 1.8;
+  margin-top: 28px;
+  font-style: italic;
+}
+
+.signature span {
+  color: var(--dark-pink);
+}
+
+.divider {
+  color: var(--pink);
+  letter-spacing: 8px;
+  margin: 35px 0;
+}
+
+.letter h3 {
+  font-size: 21px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.message-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.message-buttons button, .surprise-button {
+  border: 1px solid #f2c1d2;
+  border-radius: 12px;
+  padding: 15px 12px;
+  color: var(--dark-pink);
+  background: #fff4f8;
+  min-height: 48px;
+}
+
+.message-buttons button:hover, .surprise-button:hover {
+  background: #ffe3ed;
+}
+
+.secret-message {
+  background: #fff1f6;
+  padding: 22px;
+  border-radius: 14px;
+  line-height: 1.9;
+  margin-top: 18px;
+  animation: appear 0.4s ease both;
+}
+
+.surprise-button {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.surprise {
+  padding-top: 25px;
+  line-height: 1.9;
+  animation: appear 0.8s ease both;
+}
+
+.surprise p {
+  margin-top: 15px;
+}
+
+.big-heart {
+  font-size: 65px;
+  color: #e879a3;
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.18); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+}
+
+.forever {
+  color: var(--dark-pink);
+  font-style: italic;
+}
+
+footer {
+  padding: 20px 0;
+  color: #ad8795;
+  font-size: 13px;
+}
+
+.heart-particle {
+  position: fixed;
+  bottom: -30px;
+  z-index: 0;
+  pointer-events: none;
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-115vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 520px) {
+  .message-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
